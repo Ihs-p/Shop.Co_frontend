@@ -1,5 +1,4 @@
 "use client";
-import { useAppDispatch } from "@/redux/hooks";
 import {
   decreaseQuantity,
   deleteFromCart,
@@ -11,11 +10,12 @@ import { Carts } from "@/redux/types";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { toast, Toaster } from "sonner";
 
 export default function Page() {
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
   const carts: Carts = useSelector((state: RootState) => state.carts);
 
   const DeliveryFee = 15;
@@ -42,7 +42,6 @@ export default function Page() {
   const handleCheckout = () => {
     if (localStorage.getItem("token")) {
       if (carts.length !== 0) {
-        // dispatch(addCartsToDB());
         dispatch(addfinaltotal(getFinalTotal()));
         redirect("/checkout");
       } else {
