@@ -16,7 +16,7 @@ export default function LoginPage() {
   interface GoogleLoginResult {
     code?: string; // The authorization code (present when login is successful)
     error?: string; // Error message (present when login fails)
-    [key: string]: any; // Include other potential dynamic properties if necessary
+    [key: string]: unknown; // Include other potential dynamic properties if necessary
   }
 
   const { inprogressLogin, Loginerror  } = useSelector((state: RootState) => state.user);

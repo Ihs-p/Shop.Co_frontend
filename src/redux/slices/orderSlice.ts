@@ -2,7 +2,7 @@ import api from "@/utils/api";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {  OrderData, Orders, OrderState } from "../types";
 import Cookies from 'js-cookie';
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 
 const initialState: OrderState = {
   orders: null,

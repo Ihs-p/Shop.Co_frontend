@@ -1,3 +1,12 @@
+interface ApiError {
+  message: string;
+  code?: number;
+  details?: string;
+}
+
+
+
+
 export interface Product {
   _id: string;
   name: string;
@@ -42,7 +51,7 @@ export interface ProductState {
   product: Product | null;
   inProgressFetchAll: boolean; // For fetchAllProducts
   inProgressFetchSingle: boolean; // For fetchProduct
-  error?: any;
+  error?: ApiError | unknown;
   totalPages: number;
   currentPage: number;
   totalProducts: number;
@@ -57,7 +66,7 @@ export interface OrderState {
   inprogressFetchAllOrders:boolean
   inprogressPlacingOrder: boolean; // For fetchAllProducts
 
-  error?: any;
+  error?: ApiError | unknown;
   cartFinalTotal:number
 
 }

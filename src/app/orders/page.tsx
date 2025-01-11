@@ -2,8 +2,7 @@
 import {  fetchAllOrders } from "@/redux/slices/orderSlice";
 import { AppDispatch, RootState } from "@/redux/store";
 import {  OrderState } from "@/redux/types";
-import { loadStripe } from "@stripe/stripe-js";
-import { redirect, useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, Toaster } from "sonner";
@@ -37,7 +36,7 @@ export default function OrderHistory() {
 
   useEffect(() => {
     dispatch(fetchAllOrders());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (error) {

@@ -115,7 +115,7 @@ export default function Page() {
   
   // Filtering, Sorting, and Pagination Logic
   useEffect(() => {
-    const search: any = params.get('search');
+    const search: string | null = params.get('search');
   
     const applyFilters = () => {
       // Filter products based on criteria

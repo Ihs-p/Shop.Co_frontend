@@ -24,6 +24,13 @@ const initialState: ProductState = {
 
 
 
+interface Review {
+  user: string; // User ID
+  rating: number; // Rating given
+  comment: string; // Review comment
+}
+
+
 
 export const fetchAllProducts = createAsyncThunk(
     'products/fetchAllProducts',
@@ -51,7 +58,7 @@ export const fetchAllProducts = createAsyncThunk(
 
 export const fetchProduct = createAsyncThunk(
     'products/fetchProduct',
-     async (id:string,thunkApi) =>{
+     async (id:string,) =>{ 
       
             const response: AxiosResponse<Product[]>  = await api.get(`/products/${id}`);
             console.log("fetched single product");
@@ -64,26 +71,30 @@ export const fetchProduct = createAsyncThunk(
 
 
 export const addReview = createAsyncThunk<
-{},
-{review:{},id:string}
+  Product, // The type of the response (updated product)
+  { review: Review; id: string }, // Input argument types
+  { rejectValue: string } // Optional rejection payload type
 >(
   'products/addReview',
-   async ({review,id},) =>{
-    const token  = await Cookies.get('token')
-          const response: AxiosResponse<Product[]>  = await api.post(`/products/add-review/${id}`,review,{
-            headers: {
-              "Content-type": "application/json",
-              Authorization: `Bearer ${token}`,
-      
-            },
-          });
-          console.log("addED review for product");
-          
-          return  await response.data 
-  
-   }
-)
-
+  async ({ review, id }, thunkApi) => {
+    try {
+      const token = Cookies.get('token');
+      const response: AxiosResponse<Product> = await api.post(
+        `/products/add-review/${id}`,
+        review,
+        {
+          headers: {
+            'Content-type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response.data; // Return the updated product
+    } catch (error) {
+      return thunkApi.rejectWithValue('Failed to add review');
+    }
+  }
+);
 
 export const productSlice = createSlice({
     name: "products",

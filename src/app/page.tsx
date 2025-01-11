@@ -4,7 +4,6 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Navigation, Pagination, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperCore } from "swiper"; // Import Swiper type
 import { Swiper as SwiperClass } from "swiper/types";
 import "swiper/css";
 import "swiper/css/pagination";

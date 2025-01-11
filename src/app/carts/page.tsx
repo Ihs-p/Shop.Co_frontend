@@ -14,7 +14,7 @@ import { redirect } from "next/navigation";
 import { useSelector } from "react-redux";
 import { toast, Toaster } from "sonner";
 
-export default function page() {
+export default function Page() {
   const dispatch = useAppDispatch();
   const carts: Carts = useSelector((state: RootState) => state.carts);
 
