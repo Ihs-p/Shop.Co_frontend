@@ -60,7 +60,7 @@ export default function Page() {
   }, [product]);
 
   const handleAddtoCart = (item: Product) => {
-    item;
+    
     const cartItem = {
       ...item,
       quantity: quantity,
@@ -411,11 +411,11 @@ export default function Page() {
                     <button
                       type="button"
                       onClick={() => {
-                        quantity < product.stock
-                          ? setQuantity(quantity + 1)
-                          : alert(
-                              "only " + product.stock + " unit is available"
-                            );
+                        if (quantity < product.stock) {
+                          setQuantity(quantity + 1);
+                        } else {
+                          alert(`Only ${product.stock} unit(s) are available.`);
+                        }
                       }}
                       className="px-4 py-2 text-sm font-medium text-black bg-transparent  border-gray-900 rounded-full "
                     >

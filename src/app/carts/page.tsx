@@ -31,7 +31,7 @@ export default function Page() {
 
 
   const getDiscountAmount = () => {
-    let dis = getsubTotal() * getTotalDiscount();
+    const dis = getsubTotal() * getTotalDiscount();
     return dis / 100;
   };
 
