@@ -25,7 +25,6 @@ const initialState: ProductState = {
 
 
 interface Review {
-  user: string; // User ID
   rating: number; // Rating given
   comment: string; // Review comment
 }
@@ -146,7 +145,7 @@ export const productSlice = createSlice({
 
         builder.addCase(fetchProduct.rejected, (state, action) => {
             state.inProgressFetchSingle = false;
-            state.error = action.error;
+            state.error = action.error.message;
         });
     },
 });

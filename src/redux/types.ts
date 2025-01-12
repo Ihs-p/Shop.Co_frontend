@@ -46,7 +46,7 @@ export interface ProductState {
   product: Product | null;
   inProgressFetchAll: boolean; // For fetchAllProducts
   inProgressFetchSingle: boolean; // For fetchProduct
-  error?: string;
+  error?: string | null;
   totalPages: number;
   currentPage: number;
   totalProducts: number;
@@ -61,7 +61,7 @@ export interface OrderState {
   inprogressFetchAllOrders:boolean
   inprogressPlacingOrder: boolean; // For fetchAllProducts
 
-  error?: string;
+  error?: string | null;
   cartFinalTotal:number
 
 }
