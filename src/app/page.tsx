@@ -22,7 +22,7 @@ export default function Home() {
   const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>( null );
   const {error , inProgressFetchAll:loading} = useSelector((state: RootState) => state.products);
 
-  const dispatch = useDispatch<AppDispatch>()
+  const dispatch = useDispatch<AppDispatch>(
 
   const Products = useSelector((state:RootState)=> state.products.products)
 
