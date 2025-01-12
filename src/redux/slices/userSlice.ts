@@ -40,7 +40,8 @@ export const signup = createAsyncThunk<
      
       return response.data; //  contains token and message
     } catch (error: unknown) {
-      
+      console.log(error)
+
       return rejectWithValue(
          'Signup failed'
       );

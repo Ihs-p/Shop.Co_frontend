@@ -180,7 +180,7 @@ export default function Page() {
 
 
   return (
-    <>
+    <> 
       <Toaster />
       <nav
         onClick={() => redirect(`/category`)}

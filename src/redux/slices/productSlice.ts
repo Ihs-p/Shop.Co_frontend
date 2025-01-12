@@ -91,6 +91,7 @@ export const addReview = createAsyncThunk<
       );
       return response.data; // Return the updated product
     } catch (error) {
+      console.log(error)
       return thunkApi.rejectWithValue('Failed to add review');
     }
   }
