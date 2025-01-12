@@ -93,7 +93,7 @@ export default function Page() {
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [selectedColor, setSelectedColor] = useState<string>('');
   const [selectedStyle, setSelectedStyle] = useState<string>('');
-  const [ setApplyFilter] = useState<boolean>(false);
+  const [ ,setApplyFilter] = useState<boolean>(false);
   const [selectedSort, setSelectedSort] = useState<string>('Most Popular');
   const [startProduct, setStartProduct] = useState<number>(1);
   const [endProduct, setEndProduct] = useState<number>(9);
