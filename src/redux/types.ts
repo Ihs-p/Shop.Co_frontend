@@ -51,7 +51,7 @@ export interface ProductState {
   product: Product | null;
   inProgressFetchAll: boolean; // For fetchAllProducts
   inProgressFetchSingle: boolean; // For fetchProduct
-  error?: ApiError | unknown;
+  error?: ApiError;
   totalPages: number;
   currentPage: number;
   totalProducts: number;

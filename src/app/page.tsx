@@ -21,7 +21,7 @@ import Link from "next/link";
 export default function Home() {
   const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>( null );
   const loading = useSelector((state: RootState) => state.products.inProgressFetchAll);
-  const error = useSelector((state: RootState) => state.products.error);
+  const {error} = useSelector((state: RootState) => state.products);
 
   const dispatch = useDispatch<AppDispatch>()
 
