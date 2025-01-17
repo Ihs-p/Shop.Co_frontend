@@ -99,8 +99,11 @@ export const userSlice = createSlice({
       logout: (state) => {
         state.token = null;
         state.user = null;
+        if (typeof window !== "undefined") {
+
         localStorage.removeItem('token')
         localStorage.removeItem('user')
+        }
         Cookies.remove('token')
         window.location.reload()
         },
@@ -121,8 +124,11 @@ export const userSlice = createSlice({
             state.user = action.payload.user ;
             state.token = action.payload.token;
             state.signUperror = null;
+            if (typeof window !== "undefined") {
+
             localStorage.setItem('token',action.payload.token)
             localStorage.setItem('user',JSON.stringify(action.payload.user))
+            }
             Cookies.set('token', action.payload.token, { expires: 1 / 24 }); // 1 hour expiration
 
         });
@@ -149,8 +155,11 @@ export const userSlice = createSlice({
             state.user = action.payload.user;
             state.token = action.payload.token;
             state.Loginerror = null;
+            if (typeof window !== "undefined") {
+
             localStorage.setItem('token',action.payload.token)
             localStorage.setItem('user',JSON.stringify(action.payload.user))
+            }
             Cookies.set('token', action.payload.token, { expires: 1 / 24 }); // 1 hour expiration
 
         });
@@ -189,8 +198,11 @@ export const userSlice = createSlice({
           state.user = action.payload.user;
           state.token = action.payload.token;
           state.googleError = null;
+          if (typeof window !== "undefined") {
+
           localStorage.setItem('token',action.payload.token)
           localStorage.setItem('user',JSON.stringify(action.payload.user))
+          }
           Cookies.set('token', action.payload.token, { expires: 1 / 24 }); // 1 hour expiration
 
       });

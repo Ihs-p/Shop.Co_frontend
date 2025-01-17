@@ -108,9 +108,12 @@ export const fetchAllOrders = createAsyncThunk(
   "orders/fetchAllOrders",
   async (_, thunkAPI) => {
     try {
+      let token; 
       // Retrieve the token from localStorage
-      const token = localStorage.getItem("token");
-     
+      if (typeof window !== "undefined") {
+
+       localStorage.getItem("token");
+      }
 
       // Make the API call with the token in the Authorization header
       const response = await api.get("/orders", {

@@ -6,43 +6,16 @@ import { toast } from 'sonner';
 
 // Helper function to save the cart to localStorage
 const saveToLocalStorage = (carts: Carts) => {
+  if (typeof window !== "undefined") {
+
   localStorage.setItem('carts', JSON.stringify(carts));
+  }
 };
 
 // Retrieve the initial state from localStorage or set it as an empty array
 const initialState: Carts = JSON.parse(localStorage.getItem('carts') || '[]');
 
 
-// export const addCartsToDB = createAsyncThunk<
-// any,
-// void,
-  
-// { state: RootState; rejectValue: string }  // Reject value type
-// >(
-//   'cart/addCart',
-//   async (_,{getState}) => {
-
-//     const state = getState();
-//     const carts = state.carts
-    
-//     const user: UserInfo['user'] | null = (() => {
-//       const storedUser = localStorage.getItem('user');
-//       return storedUser ? JSON.parse(storedUser) : null;
-//     })();   
-//      console.log(user)
-    
-   
-//       const response = await api.post(`/carts`,{carts,user} , {
-//         headers: {
-//           'Content-type': 'application/json',
-//         },
-      
-//       });
-      
-//       return response.data; //  contains token and message and user
-  
-//   }
-// );  
 
 
 const cartSlice = createSlice({
