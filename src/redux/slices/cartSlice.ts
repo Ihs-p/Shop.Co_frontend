@@ -6,7 +6,10 @@ import { toast } from 'sonner';
 
 // Helper function to save the cart to localStorage
 const saveToLocalStorage = (carts: Carts) => {
+  if (typeof window !== "undefined") {
+
   localStorage.setItem('carts', JSON.stringify(carts));
+  }
 };
 
 // Retrieve the initial state from localStorage or set it as an empty array
